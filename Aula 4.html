@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Aula 4 JavaScript</title>
+</head>
+<body>
+    <h1>Lanchonete Script</h1>
+    <p>Este é um exemplo de script para uma lanchonete.</p>
+</body>
+<script>
+    document.write("<h2>Bem-vindo à nossa lanchonete!</h2>");
+    document.write("<p>Escolha uma opção do menu abaixo:</p>");
+    document.write("<ul>");
+    document.write("<li>Hambúrguer</li>");
+    document.write("<li>Batata Frita</li>");
+    document.write("<li>Refrigerante</li>");
+    document.write("<p><b>Cada Lanche custa R$ 10,00</p></b>");
+    document.write("</ul>");
+    document.write("<hr>")
+
+    // Troque o valor abaixo para testar diferentes cenários
+    let dinheiro = parseFloat(10); // Valor em reais
+
+    if (dinheiro >= 10) {
+        // Cenário: Tem dinheiro suficiente
+        document.write("<h3>Você tem dinheiro suficiente!</h3>");
+        document.write("<p>Você pode comprar " + Math.floor(dinheiro / 10) + " lanches com R$ " + dinheiro.toFixed(2) + ".</p>");
+    } else if (dinheiro > 0 && dinheiro < 10) {
+        // Cenário: Não tem dinheiro suficiente
+        document.write("<h3>Você não tem dinheiro suficiente.</h3>");
+        document.write("<p>Infelizmente, você não pode comprar nenhum lanche.</p>");
+        document.write("<p>Volte quando tiver mais dinheiro!</p>");
+    }
+    document.write("<hr>")
+    document.write("<h3>Informações Adicionais:</h3>");
+    document.write("<p>Horário de Funcionamento: Segunda a Sexta, das 10h às 22h</p>");
+    document.write("<p>Agradecemos sua visita!</p></h3>");
+    document.write("<p>Volte sempre!</p>");
+    document.write("<p><b><i>Desenvolvido por Arthur Prado Brambilla</i></b></p>");
+</script>
+</html>

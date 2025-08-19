@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>quarta pagina com JS</title>
+	<script src="script2.js"></script>
+</head>
+
+<body>
+	
+</body>
+
+<script>
+
+document.write("Vou a lanchonete <br/>");
+document.write("- Quero um lanche, por favor.<br/>");
+document.write("- O lanche custa 10 reais.<br/>");
+
+//let dinheiro = parseFloat(10);
+let dinheiro = "texto";
+
+
+if (dinheiro < 10){
+	document.write("- Nao tenho o suficiente");
+	//dinheiro = dinheiro + 20;
+}
+
+else if (dinheiro == 10){
+	document.write("- Aqui o dinheiro, obrigado!");
+}
+
+else if (dinheiro > 10){
+	document.write("- Aqui o dinheiro, o troco por favor.");
+}
+
+else 
+{
+	document.write("- Deu algo errado, e não sei necessariamente.");
+}
+
+document.write("<br/><br/>Dinheiro: "+dinheiro);
+
+</script>
+
+</html>

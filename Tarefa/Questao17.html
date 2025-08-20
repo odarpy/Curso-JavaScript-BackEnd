@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Questão 17</title>
+        <script>
+            function calcularConceito(event) {
+                event.preventDefault();
+                const nome = document.getElementById('nome').value.trim();
+                const media = parseFloat(document.getElementById('media').value);
+                let conceito = '';
+
+                if (media >= 9.0) {
+                    conceito = 'A';
+                } else if (media >= 7.5) {
+                    conceito = 'B';
+                } else if (media >= 6.0) {
+                    conceito = 'C';
+                } else if (media >= 4.0) {
+                    conceito = 'D';
+                } else {
+                    conceito = 'E';
+                }
+
+                document.getElementById('resposta').innerHTML =
+                    `<b>Nome do aluno:</b> ${nome}<br>
+                    <b>Média:</b> ${media.toFixed(2)}<br>
+                    <b>Conceito:</b> ${conceito}`;
+            }
+        </script>
+    </head>
+    <body>
+        <h2>17- Faça um algoritmo que obtenha a média e o nome do aluno e mostre ao final qual é o conceito correspondente.</h2>
+        <form onsubmit="calcularConceito(event)">
+            <p>Nome do aluno: <input type="text" id="nome" required></p>
+            <p>Média de aproveitamento: <input type="number" id="media" required min="0" max="10" step="0.01"></p>
+            <input type="submit" value="Verificar Conceito">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resposta"></p>
+    </body>

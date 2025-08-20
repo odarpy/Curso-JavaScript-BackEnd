@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Questão 2</title>
+        <script>
+            function encontrarMaior(event) {
+                event.preventDefault();
+                const a = parseFloat(document.getElementById('a').value);
+                const b = parseFloat(document.getElementById('b').value);
+                const c = parseFloat(document.getElementById('c').value);
+                let maior = a;
+                if (b > maior) maior = b;
+                if (c > maior) maior = c;
+                document.getElementById('resposta').textContent = maior + ' É O MAIOR.';
+            }
+        </script>
+    </head>
+    <body>
+        <h2>2- Faça um algoritmo que leia 3 valores a, b, c, quaisquer e encontre o maior dos 3 escrevendo-o com a mensagem: É O MAIOR.</h2>
+        <form onsubmit="encontrarMaior(event)">
+            <p>Digite o valor de a: <input type="number" id="a" required></p>
+            <p>Digite o valor de b: <input type="number" id="b" required></p>
+            <p>Digite o valor de c: <input type="number" id="c" required></p>
+            <input type="submit" value="Verificar">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resposta"></p>
+    </body>
+</html>

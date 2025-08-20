@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Questão 13</title>
+        <script>
+            function verificarCapital(event) {
+                event.preventDefault();
+                const resposta = document.getElementById('capital').value.trim();
+                if (resposta === 'BRASÍLIA' || resposta === 'Brasília') {
+                    document.getElementById('resultado').textContent = 'PARABÉNS';
+                } else {
+                    document.getElementById('resultado').textContent = 'ERROU';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h2>13- Faça um algoritmo para entrar com o nome da capital do Brasil. Se a resposta estiver correta, imprimir PARABÉNS, caso contrário, ERROU. (Considerar: BRASÍLIA ou Brasília)</h2>
+        <form onsubmit="verificarCapital(event)">
+            <p>Nome da capital do Brasil: <input type="text" id="capital" required></p>
+            <input type="submit" value="Verificar">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resultado"></p>
+    </body>
+</html>

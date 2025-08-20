@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Questão 4</title>
+        <script>
+            function verificarNumero(event) {
+                event.preventDefault();
+                const num = parseInt(document.getElementById('numero').value);
+                let resultado = '';
+                if (num % 2 === 0) {
+                    resultado += 'O número é Par, ';
+                } else {
+                    resultado += 'O número é Ímpar, ';
+                }
+                if (num >= 0) {
+                    resultado += 'Positivo.';
+                } else {
+                    resultado += 'Negativo.';
+                }
+                document.getElementById('resposta').textContent = resultado;
+            }
+        </script>
+    </head>
+    <body>
+        <h2>4- Faça um algoritmo que leia um nº inteiro e mostre uma mensagem indicando se este número é par ou ímpar, e se é positivo ou negativo.</h2>
+        <form onsubmit="verificarNumero(event)">
+            <p>Digite um número inteiro: <input type="number" id="numero" required></p>
+            <input type="submit" value="Verificar">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resposta"></p>

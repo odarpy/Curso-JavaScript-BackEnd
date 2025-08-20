@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Questão 7</title>
+        <script>
+            function calcularSalario(event) {
+                event.preventDefault();
+                const numero = document.getElementById('numero').value;
+                const salarioFixo = parseFloat(document.getElementById('salarioFixo').value);
+                const vendas = parseFloat(document.getElementById('vendas').value);
+
+                let comissao = 0;
+                if (vendas <= 10000) {
+                    comissao = vendas * 0.03;
+                } else {
+                    comissao = 10000 * 0.03 + (vendas - 10000) * 0.05;
+                }
+                const salarioTotal = salarioFixo + comissao;
+
+                document.getElementById('resposta').innerHTML =
+                    `<b>Número do vendedor:</b> ${numero}<br>
+                    <b>Total de vendas:</b> R$ ${vendas.toFixed(2)}<br>
+                    <b>Salário fixo:</b> R$ ${salarioFixo.toFixed(2)}<br>
+                    <b>Salário total:</b> R$ ${salarioTotal.toFixed(2)}`;
+            }
+        </script>
+    </head>
+    <body>
+        <h2>7- Escrever um algoritmo que lê o número de um vendedor de uma empresa, seu salário fixo e o total das vendas por ele efetuadas. Sabe-se que cada vendedor recebe um salário fixo, mais uma comissão proporcional às vendas por ele efetuadas. A comissão é de 3% sobre o total das vendas até 10.000 e 5% sobre o que ultrapassa este valor. Escrever o número do vendedor, o total de suas vendas, seu salário fixo e seu salário total.</h2>
+        <form onsubmit="calcularSalario(event)">
+            <p>Número do vendedor: <input type="text" id="numero" required></p>
+            <p>Salário fixo (R$): <input type="number" id="salarioFixo" required min="0" step="0.01"></p>
+            <p>Total de vendas (R$): <input type="number" id="vendas" required min="0" step="0.01"></p>
+            <input type="submit" value="Calcular">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resposta"></p>
+    </body>
+</html>

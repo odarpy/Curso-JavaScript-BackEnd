@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Questão 15</title>
+        <script>
+            function mostrarMes(event) {
+                event.preventDefault();
+                const numero = parseInt(document.getElementById('numero').value);
+                const meses = [
+                    'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+                    'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+                ];
+                let resposta = '';
+                if (numero >= 1 && numero <= 12) {
+                    resposta = 'Mês: ' + meses[numero - 1];
+                } else {
+                    resposta = 'Não existe mês com este número.';
+                }
+                document.getElementById('resposta').textContent = resposta;
+            }
+        </script>
+    </head>
+    <body>
+        <h2>15- Faça um algoritmo para ler um número entre 1 e 12, e escrever o mês correspondente. Caso o usuário digite um número fora deste intervalo, deverá aparecer uma mensagem informando que não existe mês com este número.</h2>
+        <form onsubmit="mostrarMes(event)">
+            <p>Digite um número de 1 a 12: <input type="number" id="numero" required min="1" max="12"></p>
+            <input type="submit" value="Verificar Mês">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resposta"></p>
+    </body>
+</html>

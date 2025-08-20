@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Questão 8</title>
+        <script>
+            function calcularPesoIdeal(event) {
+                event.preventDefault();
+                const altura = parseFloat(document.getElementById('altura').value);
+                const sexo = document.getElementById('sexo').value;
+                let pesoIdeal = 0;
+                if (sexo === 'M') {
+                    pesoIdeal = (72.7 * altura) - 58;
+                } else if (sexo === 'F') {
+                    pesoIdeal = (62.1 * altura) - 44.7;
+                } else {
+                    document.getElementById('resposta').textContent = 'Sexo inválido.';
+                    return;
+                }
+                document.getElementById('resposta').textContent = 'Peso ideal: ' + pesoIdeal.toFixed(2) + ' kg';
+            }
+        </script>
+    </head>
+    <body>
+        <h2>8- Tendo como dados de entrada a altura e o sexo de uma pessoa (“M” masculino e “F” feminino), construa um algoritmo que calcule seu peso ideal.</h2>
+        <form onsubmit="calcularPesoIdeal(event)">
+            <p>Altura (em metros): <input type="number" id="altura" required step="0.01" min="0"></p>
+            <p>Sexo:
+                <select id="sexo" required>
+                    <option value="">Selecione</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                </select>
+            </p>
+            <input type="submit" value="Calcular Peso Ideal">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resposta"></p>

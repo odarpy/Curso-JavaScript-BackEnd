@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Questão 16</title>
+        <script>
+            function calcularIMC(event) {
+                event.preventDefault();
+                const nome = document.getElementById('nome').value.trim();
+                const peso = parseFloat(document.getElementById('peso').value);
+                const altura = parseFloat(document.getElementById('altura').value);
+
+                const imc = peso / (altura * altura);
+                let faixa = '';
+
+                if (imc < 20) {
+                    faixa = 'Abaixo do peso';
+                } else if (imc >= 20 && imc <= 25) {
+                    faixa = 'Normal';
+                } else if (imc > 25 && imc <= 30) {
+                    faixa = 'Excesso de peso';
+                } else if (imc > 30 && imc <= 35) {
+                    faixa = 'Obesidade';
+                } else {
+                    faixa = 'Obesidade morbida';
+                }
+
+                document.getElementById('resposta').innerHTML =
+                    `<b>Nome:</b> ${nome}<br>
+                    <b>IMC:</b> ${imc.toFixed(2)}<br>
+                    <b>Faixa de risco:</b> ${faixa}`;
+            }
+        </script>
+    </head>
+    <body>
+        <h2>16- IMC: Informe nome, peso e altura. O algoritmo apresenta o nome do paciente e sua faixa de risco.</h2>
+        <form onsubmit="calcularIMC(event)">
+            <p>Nome do paciente: <input type="text" id="nome" required></p>
+            <p>Peso (kg): <input type="number" id="peso" required min="1" step="0.01"></p>
+            <p>Altura (m): <input type="number" id="altura" required min="0.5" step="0.01"></p>
+            <input type="submit" value="Calcular IMC">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resposta"></p>
+    </body>
+</html>

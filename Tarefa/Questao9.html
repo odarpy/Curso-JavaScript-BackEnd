@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Questão 9</title>
+        <script>
+            function classificarNadador(event) {
+                event.preventDefault();
+                const idade = parseInt(document.getElementById('idade').value);
+                let categoria = '';
+                if (idade >= 5 && idade <= 7) {
+                    categoria = 'Infantil A';
+                } else if (idade >= 8 && idade <= 10) {
+                    categoria = 'Infantil B';
+                } else if (idade >= 11 && idade <= 13) {
+                    categoria = 'Juvenil A';
+                } else if (idade >= 14 && idade <= 17) {
+                    categoria = 'Juvenil B';
+                } else if (idade >= 18) {
+                    categoria = 'Adultos';
+                } else {
+                    categoria = 'Idade fora das categorias.';
+                }
+                document.getElementById('resposta').textContent = 'Categoria: ' + categoria;
+            }
+        </script>
+    </head>
+    <body>
+        <h2>9- Elabore um algoritmo que dada a idade de um nadador classifica-o em uma das seguintes categorias:</h2>
+        <ul>
+            <li>Infantil A = 5 a 7 anos</li>
+            <li>Infantil B = 8 a 10 anos</li>
+            <li>Juvenil A = 11 a 13 anos</li>
+            <li>Juvenil B = 14 a 17 anos</li>
+            <li>Adultos = Maiores de 18 anos</li>
+        </ul>
+        <form onsubmit="classificarNadador(event)">
+            <p>Idade do nadador: <input type="number" id="idade" required min="0"></p>
+            <input type="submit" value="Classificar">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resposta"></p>
+    </body>
+</html>

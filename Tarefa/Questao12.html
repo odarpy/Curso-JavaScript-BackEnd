@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Questão 12</title>
+        <script>
+            function verificarDivisibilidade(event) {
+                event.preventDefault();
+                const numero = parseInt(document.getElementById('numero').value);
+                let resposta = '';
+                if (numero % 10 === 0) {
+                    resposta = 'O número é divisível por 10.';
+                } else if (numero % 5 === 0) {
+                    resposta = 'O número é divisível por 5.';
+                } else {
+                    resposta = 'O número não é divisível por 10 nem por 5.';
+                }
+                document.getElementById('resposta').textContent = resposta;
+            }
+        </script>
+    </head>
+    <body>
+        <h2>12- Faça um algoritmo para entrar com um número e informar se ele é divisível por 10, ou é divisível por 5, ou se não é divisível por nenhum destes.</h2>
+        <form onsubmit="verificarDivisibilidade(event)">
+            <p>Digite um número: <input type="number" id="numero" required></p>
+            <input type="submit" value="Verificar">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id ="resposta"></p>
+    </body>
+</html>

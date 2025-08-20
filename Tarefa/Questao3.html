@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Questão 3</title>
+        <script>
+            function calcularMedia(event) {
+                event.preventDefault();
+                const n1 = parseFloat(document.getElementById('nota1').value);
+                const n2 = parseFloat(document.getElementById('nota2').value);
+                const n3 = parseFloat(document.getElementById('nota3').value);
+                const media = ((n1 + n2 + n3) / 3).toFixed(2);
+                let mensagem = 'Média: ' + media + ' - ';
+                mensagem += (media >= 6) ? 'Aprovado' : 'Reprovado';
+                document.getElementById('resposta').textContent = mensagem;
+            }
+        </script>
+    </head>
+    <body>
+        <h2>3- Calcule a média aritmética das 3 notas de um aluno e mostre, além do valor da média, uma mensagem de "Aprovado", caso a média seja igual ou superior a 6, ou a mensagem "Reprovado", caso contrário.</h2>
+        <form onsubmit="calcularMedia(event)">
+            <p>Nota 1: <input type="number" id="nota1" required min="0" max="10" step="0.01"></p>
+            <p>Nota 2: <input type="number" id="nota2" required min="0" max="10" step="0.01"></p>
+            <p>Nota 3: <input type="number" id="nota3" required min="0" max="10" step="0.01"></p>
+            <input type="submit" value="Calcular Média">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resposta"></p>
+    </body>

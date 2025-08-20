@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Questão 5</title>
+        <script>
+            function ordenarDecrescente(event) {
+                event.preventDefault();
+                const v1 = parseInt(document.getElementById('v1').value);
+                const v2 = parseInt(document.getElementById('v2').value);
+                const v3 = parseInt(document.getElementById('v3').value);
+                const valores = [v1, v2, v3];
+                valores.sort(function(a, b) { return b - a; });
+                document.getElementById('resposta').textContent = 'Ordem decrescente: ' + valores.join(', ');
+            }
+        </script>
+    </head>
+    <body>
+        <h2>5- Escreva um algoritmo que leia três valores inteiros e mostre-os em ordem decrescente.</h2>
+        <form onsubmit="ordenarDecrescente(event)">
+            <p>Valor 1: <input type="number" id="v1" required></p>
+            <p>Valor 2: <input type="number" id="v2" required></p>
+            <p>Valor 3: <input type="number" id="v3" required></p>
+            <input type="submit" value="Ordenar">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resposta"></p>
+    </body>
+</html>

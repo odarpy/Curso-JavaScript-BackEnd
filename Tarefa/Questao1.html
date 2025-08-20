@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Questao 1</title>
+    </head>
+    <body>
+        <h2>1- Faça um algoritmo que leia dois números inteiros positivos e mostre ao final qual deles é o menor. Caso os números sejam iguais mostre uma mensagem para o usuário informando isso.</h2>
+        <form onsubmit="compararNumeros(event)">
+            <p>Digite o primeiro número:
+                <input type="number" id="num1" required min="0"></p>
+            <p>Digite o segundo número:
+                <input type="number" id="num2" required min="0"></p>
+            <input type="submit" value="Enviar">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resposta"></p>
+    <script>
+            function compararNumeros(event) {
+                event.preventDefault();
+                const num1 = parseInt(document.getElementById('num1').value);
+                const num2 = parseInt(document.getElementById('num2').value);
+                let resultado = '';
+                if (num1 === num2) {
+                    resultado = 'Os números são iguais.';
+                } else if (num1 < num2) {
+                    resultado = 'O menor número é: ' + num1;
+                } else {
+                    resultado = 'O menor número é: ' + num2;
+                }
+                document.getElementById('resposta').textContent = resultado;
+            }
+        </script>
+    </body>
+</html>

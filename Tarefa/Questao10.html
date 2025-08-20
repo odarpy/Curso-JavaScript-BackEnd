@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Questão 10</title>
+        <script>
+            function calcularNovoSalario(event) {
+                event.preventDefault();
+                const salario = parseFloat(document.getElementById('salario').value);
+                const cargo = document.getElementById('cargo').value;
+                let percentual = 0;
+
+                if (cargo === '101') {
+                    percentual = 0.10;
+                } else if (cargo === '102') {
+                    percentual = 0.20;
+                } else if (cargo === '103') {
+                    percentual = 0.30;
+                } else {
+                    percentual = 0.40;
+                }
+
+                const novoSalario = salario * (1 + percentual);
+                const diferenca = novoSalario - salario;
+
+                document.getElementById('resposta').innerHTML =
+                    `<b>Salário antigo:</b> R$ ${salario.toFixed(2)}<br>
+                    <b>Novo salário:</b> R$ ${novoSalario.toFixed(2)}<br>
+                    <b>Diferença:</b> R$ ${diferenca.toFixed(2)}`;
+            }
+        </script>
+    </head>
+    <body>
+        <h2>10- Uma empresa concederá um aumento de salário aos seus funcionários, variável de acordo com o cargo, conforme a tabela a seguir. Faça um algoritmo que leia o salário e o cargo de um funcionário e calcule o novo salário. Se o cargo do funcionário não estiver na tabela, ele deverá, então, receber 40% de aumento. Mostre o salário antigo, o novo salário e a diferença.</h2>
+        <table border="1">
+            <tr><th>Código</th><th>Cargo</th><th>Percentual</th></tr>
+            <tr><td>101</td><td>Gerente</td><td>10%</td></tr>
+            <tr><td>102</td><td>Engenheiro</td><td>20%</td></tr>
+            <tr><td>103</td><td>Técnico</td><td>30%</td></tr>
+        </table>
+        <form onsubmit="calcularNovoSalario(event)">
+            <p>Salário atual (R$): <input type="number" id="salario" required min="0" step="0.01"></p>
+            <p>Código do cargo:
+                <select id="cargo" required>
+                    <option value="">Selecione</option>
+                    <option value="101">101 - Gerente</option>
+                    <option value="102">102 - Engenheiro</option>
+                    <option value="103">103 - Técnico</option>
+                    <option value="outro">Outro</option>
+                </select>
+            </p>
+            <input type="submit" value="Calcular Novo Salário">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resposta"></p>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questao 33</title>
+</head>
+<body>
+    <p>Faça um algoritmo para ler vários números até entrar o número -999. Para cada número, imprimir seus divisores.</p>
+    <button onclick="lerNumeros()">Iniciar</button>
+    <hr>
+    <h3>Resposta</h3>
+    <p id="resposta"></p>
+    <script>
+        function lerNumeros() {
+            let numero = Number(prompt("Digite um numero (-999 para sair)"));
+            while(numero != -999) {
+                let divisores = [];
+                for(let i = 1; i <= numero; i++) {
+                    if(numero % i == 0) {
+                        divisores.push(i);
+                    }
+                }
+                document.getElementById("resposta").innerHTML += `Divisores de ${numero}: ${divisores.join(", ")}<br>`;
+                numero = Number(prompt("Digite um numero (-999 para sair)"));
+            }
+        }
+    </script>
+</body>
+</html>

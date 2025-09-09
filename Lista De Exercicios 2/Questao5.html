@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Calculo Fibonacci</title>
+    </head>
+    <body>
+        <h1>Faça um algoritmo para calcular a série Fibonacci até o vigésimo termo. A série tem a seguinte forma: 1,1,2,3,5,8,13,21,34,…</h1>
+        <button onclick="calcular()">Calcular</button>
+        <p id="resultado"></p>
+
+        <script>
+            function calcular() {
+                let a = 1, b = 1;
+                let resultado = "1, 1";
+                
+                for (let i = 3; i <= 20; i++) {
+                    let proximo = a + b;
+                    resultado += ", " + proximo;
+                    a = b;
+                    b = proximo;
+                }
+                
+                document.getElementById('resultado').innerHTML = "Série Fibonacci até o vigésimo termo: " + resultado;
+            }
+        </script>
+    </body>
+</html>

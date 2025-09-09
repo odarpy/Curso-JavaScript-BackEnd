@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Questao 25</title>
+</head>
+<body>
+    <h2>25. Salários da fábrica</h2>
+    <form onsubmit="calcularSalarios(event)">
+        <p>Número do operário: <input type="text" id="numero" required></p>
+        <p>Número de peças: <input type="number" id="pecas" required min="0"></p>
+        <p>Sexo: <input type="text" id="sexo" required></p>
+        <input type="submit" value="Adicionar">
+    </form>
+    <hr>
+    <h3>Resposta</h3>
+    <p id="resposta"></p>
+    <script>
+        const salarioMinimo = 1320;
+        let totalSalarios = 0;
+        let totalPecas = 0;
+        let maiorSalario = 0;
+        let numMaiorSalario = 0;
+        let resultado = "";
+        function calcularSalarios(event) {
+            event.preventDefault();
+            let numero = document.getElementById("numero").value;
+            let pecas = parseInt(document.getElementById("pecas").value);
+            let sexo = document.getElementById("sexo").value.toUpperCase();
+            let salario = 0;
+            if (pecas < 30) {
+                salario = salarioMinimo;
+            } else if (pecas <= 50) {
+                salario = salarioMinimo + (pecas * 0.03 * salarioMinimo);
+            } else {    
+                salario = salarioMinimo + (pecas * 0.05 * salarioMinimo);
+            }
+            totalSalarios += salario;
+            totalPecas += pecas;
+            if (salario > maiorSalario) {
+                maiorSalario = salario;
+                numMaiorSalario = numero;
+            }
+            resultado += `Operário ${numero} (Sexo: ${sexo}) - Peças: ${pecas} - Salário: R$ ${salario.toFixed(2)}<br>`;
+            document.getElementById("resposta").innerHTML = resultado + `<hr>
+                Total de salários: R$ ${totalSalarios.toFixed(2)}<br>
+                Total de peças: ${totalPecas}<br>                
+                Maior salário: R$ ${maiorSalario.toFixed(2)}<br>
+                Operário com maior salário: ${numMaiorSalario}`;
+        }
+    </script>
+</body>
+</html>

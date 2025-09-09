@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Soma De Numeros Pares</title>
+    </head>
+    <body>
+        <h1>Construa um algoritmo que, dado um conjunto de valores inteiros e positivos, determine qual o menor e o maior valor. O final do conjunto de valores é conhecido através do valor –1, que não deve ser considerado.</h1>
+    </body>
+        <p>Digite um valor:</p>
+        <input type="number" id="x">
+        <button onclick="calcular()">Calcular</button>
+        
+        <p id="resultado"></p>
+
+        <script>
+            function calcular() {
+                let x = document.getElementById('x').value;
+                x = Number(x);
+                
+                let maior = null;
+                let menor = null;
+                
+                for (; x !== -1; x = Number(prompt("Digite outro valor (ou -1 para terminar):"))) {
+                    if (maior === null || x > maior) {
+                        maior = x;
+                    }
+                    if (menor === null || x < menor) {
+                        menor = x;
+                    }
+                }
+                
+                if (maior === null || menor === null) {
+                    document.getElementById('resultado').innerHTML = "Nenhum valor válido foi inserido.";
+                } else {
+                    document.getElementById('resultado').innerHTML = 
+                        "Maior valor: " + maior + "<br>" +
+                        "Menor valor: " + menor;
+                }
+            }
+        </script>
+    </body>
+</html>

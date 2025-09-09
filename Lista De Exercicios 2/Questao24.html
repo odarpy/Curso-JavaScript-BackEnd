@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questao 24</title>
+</head>
+<body>
+    <p>Para determinar o número de lâmpadas necessárias para cada cômodo de uma residência, existem normas que dão o mínimo de potência de iluminação exigida por m2 conforme a utilização deste cômodo. Seja a seguinte tabela como exemplo: Utilização Classe Potência Quarto 1 15 Sala de tv 1 15 Salas 2 18 Cozinha 2 18 Varandas 2 18 Escritório 3 20 Banheiro 3 20 Sabendo-se que serão utilizadas lâmpadas de 60W, fazer um algoritmo que: a) leia um número indeterminado de linhas contendo cada uma: i) nome do cômodo de uma residência ii) classe de iluminação deste cômodo iii) as duas dimensões do cômodo (supondo-se cômodos em forma de quadrado ou retângulo) b)Calcule e escreva: i) para cada cômodo: (1) o nome do cômodo; (2) a área do cômodo; (3) potência de iluminação; (4) número de lâmpadas necessárias. ii) para toda a residência: (1) total de lâmpadas; (2) total de potência. Obs.: Se o número calculado de lâmpadas for fracionário, considerar o maior inteiro que contenha este número.</p>
+    <button onclick="iniciarCalculo()">Iniciar Cálculo</button>
+    <p id="resultado"></p>
+    <script>
+        const tabela = {
+            "1": 15,
+            "2": 18,
+            "3": 20
+        };
+        let totalLampadas = 0;
+        let totalPotencia = 0;
+        let resultado = "";
+
+        function calcularCadaCasa() {
+            let nome = prompt("Nome do cômodo (digite 'fim' para sair):");
+            if (nome === "fim") {
+                return;
+            }
+            let classe = parseInt(prompt("Classe (1, 2 ou 3):"));
+            let comp = parseFloat(prompt("Comprimento:"));
+            let larg = parseFloat(prompt("Largura:"));
+            let area = comp * larg;
+            let potNecessaria = 0;
+            if (classe in tabela) {
+                potNecessaria = area * tabela[classe];
+            } else {
+                alert("Classe inválida!");
+                return;
+            }
+            let lampadas = Math.ceil(potNecessaria / 60);
+            resultado = resultado + "Cômodo: " + nome + 
+                       " - Área: " + area + 
+                       " - Potência: " + potNecessaria + 
+                       " - Lâmpadas: " + lampadas + "<br>";
+            totalLampadas = totalLampadas + lampadas;
+            totalPotencia = totalPotencia + potNecessaria;
+            calcularCadaCasa();
+        }
+
+        function iniciarCalculo() {
+            calcularCadaCasa();
+            resultado = resultado + "Total de lâmpadas: " + totalLampadas + 
+                       "<br>Total de potência: " + totalPotencia;
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>

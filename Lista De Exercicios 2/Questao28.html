@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Média De Doze Números</title>
+    </head>
+    <body>
+        <h1>Faça um algoritmo para entrar com 12 números e imprimir a média desses números</h1>
+        <form onsubmit="calcularMedia(event)">
+            <p>Digite o primeiro número: <input type="number" id="num1" required></p>
+            <p>Digite o segundo número: <input type="number" id="num2" required></p>
+            <p>Digite o terceiro número: <input type="number" id="num3" required></p>
+            <p>Digite o quarto número: <input type="number" id="num4" required></p>
+            <p>Digite o quinto número: <input type="number" id="num5" required></p>
+            <p>Digite o sexto número: <input type="number" id="num6" required></p>
+            <p>Digite o sétimo número: <input type="number" id="num7" required></p>
+            <p>Digite o oitavo número: <input type="number" id="num8" required></p>
+            <p>Digite o nono número: <input type="number" id="num9" required></p>
+            <p>Digite o décimo número: <input type="number" id="num10" required></p>
+            <p>Digite o décimo primeiro número: <input type="number" id="num11" required></p>
+            <p>Digite o décimo segundo número: <input type="number" id="num12" required></p>
+            <input type="submit" value="Calcular">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resposta"></p>
+    </body>
+    <script>
+        function calcularMedia(event) {
+            event.preventDefault();
+            let num1 = Number(document.querySelector("#num1").value);
+            let num2 = Number(document.querySelector("#num2").value);
+            let num3 = Number(document.querySelector("#num3").value);
+            let num4 = Number(document.querySelector("#num4").value);
+            let num5 = Number(document.querySelector("#num5").value);
+            let num6 = Number(document.querySelector("#num6").value);
+            let num7 = Number(document.querySelector("#num7").value);
+            let num8 = Number(document.querySelector("#num8").value);
+            let num9 = Number(document.querySelector("#num9").value);
+            let num10 = Number(document.querySelector("#num10").value);
+            let num11 = Number(document.querySelector("#num11").value);
+            let num12 = Number(document.querySelector("#num12").value);
+
+            let soma = num1 + num2 + num3 + num4 + num5 + num6 + num7 + num8 + num9 + num10 + num11 + num12;
+            let media = soma / 12;
+
+            document.querySelector("#resposta").innerHTML = `A média dos 12 números é ${media.toFixed(2)}`;
+        }
+    </script>
+</html>

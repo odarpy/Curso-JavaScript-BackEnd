@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questao 29</title>
+    <script>
+        function contarPares() {
+            let pares = 0;
+            for (let i = 0; i < 12; i++) {
+                let numero = Number(prompt(`Digite o ${i+1}º numero:`));
+                if (numero % 2 == 0 && numero >= 100 && numero <= 200) {
+                    pares++;
+                }
+            }
+            alert(`Foram digitados ${pares} pares entre 100 e 200`);
+        }
+    </script>
+</head>
+<body>
+    <h1>Questao 29</h1>
+    <button onclick="contarPares()">Contar Pares</button>
+</body>
+</html>

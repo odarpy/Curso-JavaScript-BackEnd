@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Algoritmo de Soma</title>
+</head>
+<body>
+    <h1>Algoritmo de Soma</h1>
+    
+    <p>Digite um valor para X:</p>
+    <input type="number" id="x">
+    <button onclick="calcular()">Calcular</button>
+    
+    <p id="resultado"></p>
+
+    <script>
+        function calcular() {
+            let x = document.getElementById('x').value;
+            x = Number(x);
+            
+            let y = 0;
+            
+            for (let i = 1; i <= 100; i++) {
+                y = y + (x + i);
+            }
+            
+            document.getElementById('resultado').innerHTML = "Y = " + y;
+        }
+    </script>
+</body>
+</html>

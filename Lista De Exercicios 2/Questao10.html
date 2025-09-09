@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Soma De Numeros Pares</title>
+    </head>
+    <body>
+        <h1>Tendo o consumo diário de uma residência durante um mês (30dias), construa um algoritmo que calcule e escreva a média consumida por dia.</h1>
+    </body>
+        <button onclick="calcular()">Calcular</button>
+        <p id="resultado"></p>
+        <script>
+            function calcular() {
+                let consumoTotal = 0;
+                
+                for (let i = 1; i <= 30; i++) {
+                    let consumoDiario = Math.random() * 100; 
+                    consumoTotal += consumoDiario;
+                }
+                
+                let mediaDiaria = consumoTotal / 30;
+                
+                document.getElementById('resultado').innerHTML = 
+                    "Média consumida por dia: " + mediaDiaria.toFixed(2) + " unidades";
+            }
+        </script>
+</html>

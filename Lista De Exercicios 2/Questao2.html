@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exponenciacao</title>
+</head>
+<body>
+    <h1>Calculo de A elevado a B</h1>
+    
+    <p>Digite o valor de A: <input type="number" id="valorA"></p>
+    <p>Digite o valor de B: <input type="number" id="valorB"></p>
+    
+    <button onclick="calcular()">Calcular</button>
+    
+    <p id="resultado"></p>
+
+    <script>
+        function calcular() {
+            let A = parseFloat(document.getElementById("valorA").value);
+            let B = parseInt(document.getElementById("valorB").value);
+            let resultado = 1;
+            
+            for(let i = 0; i < B; i++) {
+                resultado = resultado * A;
+            }
+            
+            document.getElementById("resultado").innerHTML = "O resultado de " + A + " elevado a " + B + " e: " + resultado;
+        }
+    </script>
+</body>
+</html>

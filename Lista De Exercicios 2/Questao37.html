@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questao 37</title>
+</head>
+<body>
+    <p>Faca um algoritmo que funcione através do menu abaixo.</p>
+    <p>Calcula seno/co-seno</p>
+    <p>Calcula o quadrado</p>
+    <p>Calcula radiciação</p>
+    <p>Termina o algoritmo</p>
+    <br>
+    <p>Entre com o numero: </p>
+    <p>Entre com a opcao: </p>
+</body>
+<script>
+    function calcularSenoCosseno(numero) {
+        return {
+            seno: Math.sin(numero),
+            cosseno: Math.cos(numero)
+        };
+    }
+
+    function calcularQuadrado(numero) {
+        return numero * numero;
+    }
+
+    function calcularRadiciacao(numero) {
+        if (numero < 0) {
+            return "Número inválido para radiciação.";
+        }
+        return Math.sqrt(numero);
+    }
+
+    function menu() {
+        let numero = parseFloat(prompt("Entre com o número:"));
+        let opcao;
+        do {
+            opcao = prompt("Escolha uma opção:\n1. Calcula seno/co-seno\n2. Calcula o quadrado\n3. Calcula radiciação\n4. Termina o algoritmo");
+            switch (opcao) {
+                case '1':
+                    const { seno, cosseno } = calcularSenoCosseno(numero);
+                    alert(`Seno: ${seno}, Cosseno: ${cosseno}`);
+                    continue;
+                case '2':
+                    const quadrado = calcularQuadrado(numero);
+                    alert(`Quadrado: ${quadrado}`);
+                    continue;
+                case '3':
+                    const radiciacao = calcularRadiciacao(numero);
+                    alert(`Radiciação: ${radiciacao}`);
+                    continue;
+                case '4':
+                    alert("Encerrando o algoritmo.");
+                    return;
+                default:
+                    alert("Opção inválida. Tente novamente.");
+            }
+        } while (true);
+    }
+
+    menu();
+</script>
+</html>
+

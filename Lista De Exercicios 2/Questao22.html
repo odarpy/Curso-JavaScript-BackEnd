@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questao 22</title>
+</head>
+<body>
+    <p>Num frigorífico existem 90 bois. Cada boi traz em seu pescoço um cartão contendo seu número de identificação e seu peso. Fazer um algoritmo que escreva o número e o peso do boi mais gordo e do boi mais magro.</p>
+    <div id="resposta"></div>
+    <script>
+        function encontrarBois() {
+            const numBois = 90;
+            let bois = [];
+
+            for (let i = 0; i < numBois; i++) {
+                let id = prompt(`Digite o número de identificação do boi ${i + 1}:`);
+                let peso = parseFloat(prompt(`Digite o peso do boi ${i + 1} (em kg):`));
+
+                if (isNaN(peso) || peso <= 0) {
+                    alert("Por favor, insira um valor válido para o peso.");
+                    i--;
+                    continue;
+                }
+
+                bois.push({ id: id, peso: peso });
+            }
+
+            bois.sort((a, b) => a.peso - b.peso);
+
+            let boiMaisMagro = bois[0];
+            let boiMaisGordo = bois[bois.length - 1];
+
+            document.getElementById("resposta").innerHTML = `Boi mais magro: ID ${boiMaisMagro.id}, Peso ${boiMaisMagro.peso} kg<br>Boi mais gordo: ID ${boiMaisGordo.id}, Peso ${boiMaisGordo.peso} kg`;
+        }
+
+        encontrarBois();
+    </script>
+</body>
+</html>
+

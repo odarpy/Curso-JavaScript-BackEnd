@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questao 26</title>
+    <script>
+        function calcularSalario(event) {
+            event.preventDefault();
+            let salarioFixo = parseFloat(document.querySelector("#salarioFixo").value);
+            let resultado = "Salário Bruto - Salário Líquido<br>";
+            for (let i = 1; i <= 20; i++) {
+                let matricula = parseInt(prompt("Matrícula do vendedor " + i + ":"));
+                let tvPequena = parseInt(prompt("TVs <= 29 polegadas vendidas:"));
+                let tvGrande = parseInt(prompt("TVs > 29 polegadas vendidas:"));
+                let comissao = 0;
+                if (tvPequena >= 10) {
+                    comissao = comissao + tvPequena * 50;
+                } else {
+                    comissao = comissao + tvPequena * 100;
+                }
+                if (tvGrande >= 20) {
+                    comissao = comissao + tvGrande * 100;
+                } else {
+                    comissao = comissao + tvGrande * 50;
+                }
+                let salarioBruto = salarioFixo + comissao;
+                let inss = salarioFixo * 0.08;
+                let salarioLiquido = salarioBruto - inss;
+                if (salarioLiquido >= 1800) {
+                    let ir = salarioLiquido * 0.15;
+                    salarioLiquido = salarioLiquido - ir;
+                }
+                resultado = resultado + "Matrícula: " + matricula + 
+                           " - Bruto: " + salarioBruto.toFixed(2) + 
+                           " - Líquido: " + salarioLiquido.toFixed(2) + "<br>";
+            }
+            document.querySelector("#resposta").innerHTML = resultado;
+        }
+    </script>
+</head>
+<body>
+    <h2>26- Vendedores</h2>
+    <form onsubmit="calcularSalario(event)">
+        <p>Salário fixo (R$): <input type="number" id="salarioFixo" required min="0" step="0.01"></p>
+        <input type="submit" value="Calcular Salários">
+    </form>
+    <hr>
+    <h3>Resposta</h3>
+    <p id="resposta"></p>
+</body>
+</html>

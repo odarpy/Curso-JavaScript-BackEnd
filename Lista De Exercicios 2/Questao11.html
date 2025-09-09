@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Soma De Numeros Pares</title>
+    </head>
+    <body>
+        <h1>Escreva um algoritmo que calcule e escreva a soma dos inteiros pares de 2 a 30.</h1>
+    </body>
+        <button onclick="calcular()">Calcular</button>
+        <p id="resultado"></p>
+
+        <script>
+            function calcular() {
+                let soma = 0;
+                for (let i = 2; i <= 30; i += 2) {
+                    soma += i;
+                }
+                
+                document.getElementById('resultado').innerHTML = "A soma dos números pares de 2 a 30 é: " + soma;
+            }
+        </script>
+    </body>
+</html>

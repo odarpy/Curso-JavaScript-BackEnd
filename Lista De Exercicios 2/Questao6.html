@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Calculo De Algoritmo</title>
+    </head>
+    <body>
+        <h1>Faça um algoritmo para ler um valor X e calcular Y = X+2X+3X+4X+5X+…+20X</h1>
+        <p>Digite um valor para X:</p>
+        <input type="number" id="x">
+        <button onclick="calcular()">Calcular</button>
+        <p id="resultado"></p>
+        <script>
+            function calcular() {
+                let x = document.getElementById('x').value;
+                x = Number(x);
+                
+                let y = 0;
+                
+                for (let i = 1; i <= 20; i++) {
+                    y = y + (i * x);
+                }
+                
+                document.getElementById('resultado').innerHTML = "Y = " + y;
+            }
+        </script>
+    </body>
+</html>

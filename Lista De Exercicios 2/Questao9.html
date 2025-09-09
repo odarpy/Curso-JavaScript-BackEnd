@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Calculo de alunos</title>
+    </head>
+    <body>
+        <h1>Tendo o conceito (A, B, C, ou D) individual de 38 alunos, construa um algoritmo que calcule e escreva o total de cada conceito.</h1>
+    </body>
+        <button onclick="calcular()">Calcular</button>
+        <p id="resultado"></p>
+        <script>
+            function calcular() {
+                let totalA = 0;
+                let totalB = 0;
+                let totalC = 0;
+                let totalD = 0;
+                
+                for (let i = 1; i <= 38; i++) {
+                    let conceito = Math.random();
+                    if (conceito < 0.25) {
+                        totalA++;
+                    } else if (conceito < 0.5) {
+                        totalB++;
+                    } else if (conceito < 0.75) {
+                        totalC++;
+                    } else {
+                        totalD++;
+                    }
+                }
+                
+                document.getElementById('resultado').innerHTML = 
+                    "Total de alunos com conceito A: " + totalA + "<br>" +
+                    "Total de alunos com conceito B: " + totalB + "<br>" +
+                    "Total de alunos com conceito C: " + totalC + "<br>" +
+                    "Total de alunos com conceito D: " + totalD;
+            }
+        </script>
+</html>

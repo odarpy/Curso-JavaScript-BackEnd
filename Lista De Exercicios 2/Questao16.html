@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questao 16</title>
+</head>
+<body>
+    <p>Fazer um algoritmo que calcule e escreva o valor de S para os seguintes somatórios:</p>
+    <ul>
+        <li>a) S = 1/1 + 3/2 + 5/3 + 7/4 + ... + 99/50</li>
+        <li>b) S = 21/50 + 22/49 + 23/48 + ... + 250/1</li>
+        <li>c) S = 1/1 – 2/4 + 3/9 – 4/16 + 5/25 – 6/36 + ... – 10/100</li>
+    </ul>
+</body>
+<script>
+    let somaA = 0;
+    for (let i = 1; i <= 50; i++) {
+        somaA += (2 * i - 1) / i;
+    }
+    document.write("<h2>Resultado do somatório a): " + somaA.toFixed(2) + "</h2>");
+
+    let somaB = 0;
+    for (let i = 0; i < 50; i++) {
+        somaB += (21 + i) / (50 - i);
+    }
+    document.write("<h2>Resultado do somatório b): " + somaB.toFixed(2) + "</h2>");
+
+    let somaC = 0;
+    for (let i = 1; i <= 10; i++) {
+        somaC += i % 2 === 0 ? -i / (i * i) : i / (i * i);
+    }
+    document.write("<h2>Resultado do somatório c): " + somaC.toFixed(2) + "</h2>");
+</script>
+</html>

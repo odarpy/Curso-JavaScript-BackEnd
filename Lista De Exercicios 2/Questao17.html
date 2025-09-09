@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questao 17</title>
+</head>
+<body>
+    <p>Fazer um algoritmo para calcular e escrever o valor do número z. z = 4 – 4/3 + 4/5 – 4/7 + 4/9 – 4/11 + ... + 4/100</p>
+    <p id="resultado"></p>
+</body>
+<script>
+    let z = 0;
+    for(let i = 1; i <= 100; i += 2) {
+        if((i - 1) % 4 == 0) {
+            z += 4 / i;
+        } else {
+            z -= 4 / i;
+        }
+    }
+    document.getElementById("resultado").innerHTML = "O valor do número z é: " + z.toFixed(2);
+</script>
+</html>

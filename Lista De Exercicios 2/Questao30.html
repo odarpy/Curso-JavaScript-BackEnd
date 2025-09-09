@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Multiplicacao</title>
+    </head>
+    <body>
+        <h1>Calculo de A multiplicado por B</h1>
+        
+        <p>Digite o valor de A: <input type="number" id="valorA"></p>
+        <p>Digite o valor de B: <input type="number" id="valorB"></p>
+        
+        <button onclick="calcular()">Calcular</button>
+        
+        <p id="resultado"></p>
+
+        <script>
+            function calcular() {
+                let valorA = Number(document.getElementById("valorA").value);
+                let valorB = Number(document.getElementById("valorB").value);
+                let resultado = 0;
+
+                for (let i = 0; i < valorB; i++) {
+                    resultado += valorA;
+                }
+
+                document.getElementById("resultado").innerHTML = `O resultado de ${valorA} multiplicado por ${valorB} é ${resultado}`;
+            }
+        </script>
+    </body>
+</html>

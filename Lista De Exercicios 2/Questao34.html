@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questao 34</title>
+    <script>
+        function verificarNumero(event) {
+            event.preventDefault();
+            let numero = Number(document.querySelector('#numero').value);
+            if (numero < 0) {
+                alert('Número negativo não é aceito');
+                return;
+            }
+            let raiz = Math.sqrt(numero);
+            document.querySelector('#resposta').innerHTML += `Raiz de ${numero} é ${raiz}<br>`;
+        }
+    </script>
+</head>
+<body>
+    <h2>34- Faça um algoritmo que deixe entrar com 10 números positivos e imprima raiz quadrada de cada número. Para cada entrada de dados deverá ter um trecho de proteção para que um número negativo não seja aceito.</h2>
+    <form onsubmit="verificarNumero(event)">
+        <p>Digite um número positivo: <input type="number" id="numero" required></p>
+        <input type="submit" value="Verificar">
+    </form>
+    <hr>
+    <h3>Resposta</h3>
+    <p id="resposta"></p>
+</body>
+</html>

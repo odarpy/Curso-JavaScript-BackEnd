@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fatorial</title>
+</head>
+<body>
+    <h1>Calculo de N! (Fatorial)</h1>
+    
+    <p>Digite o valor de N: <input type="number" id="valorN"></p>
+    
+    <button onclick="calcular()">Calcular</button>
+    
+    <p id="resultado"></p>
+
+    <script>
+        function calcular() {
+            let N = parseInt(document.getElementById("valorN").value);
+            
+            let fatorial = 1;
+            
+            if(N == 0) {
+                fatorial = 1;
+            }
+            
+            else {
+                for(let i = 1; i <= N; i++) {
+                    fatorial = fatorial * i;
+                }
+            }
+            
+            document.getElementById("resultado").innerHTML = "O fatorial de " + N + " e: " + fatorial;
+        }
+    </script>
+</body>
+</html>

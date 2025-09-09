@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang = "pt-br">
+<head>
+    <title>Questao 15</title>
+</head>
+<body>
+    <p>Dado o sexo (F ou M), a altura (em centímetros). Elabore um algoritmo que calcule e escreva: a. A média de altura das mulheres. b. A média de altura do grupo. c. O total de homens d. Total de homens com mais de 170 centímetros de altura. Para finalizar a entrada dos dados, deve-se utilizar altura = 00</p>
+</body>
+<script>
+    let totalMulheres = 0
+    let somaAlturaMulheres = 0
+    let totalHomens = 0
+    let totalHomensAcimaDe170 = 0
+    let somaAlturaGrupo = 0
+    let totalPessoas = 0
+
+    while (true) {
+        let sexo = prompt("Digite o sexo (F ou M). Para finalizar a entrada dos dados, digite 'Sair'").toUpperCase()
+        if (sexo === "SAIR") {
+            break
+        }
+        let altura = parseFloat(prompt("Digite a altura em centímetros. Para finalizar a entrada dos dados, digite 00"))
+        if (altura === 0) {
+            break
+        }
+
+        somaAlturaGrupo += altura
+        totalPessoas++
+
+        if (sexo === "F") {
+            totalMulheres++
+            somaAlturaMulheres += altura
+        } else if (sexo === "M") {
+            totalHomens++
+            if (altura > 170) {
+                totalHomensAcimaDe170++
+            }
+        } else {
+            alert("Sexo inválido. Por favor, digite 'F' para feminino ou 'M' para masculino.")
+            totalPessoas--
+            somaAlturaGrupo -= altura
+        }
+    }
+
+    let mediaAlturaMulheres = totalMulheres === 0 ? 0 : (somaAlturaMulheres / totalMulheres).toFixed(2)
+    let mediaAlturaGrupo = totalPessoas === 0 ? 0 : (somaAlturaGrupo / totalPessoas).toFixed(2)
+
+    document.write("<h2>Resultados:</h2>")
+    document.write("<p>Média de altura das mulheres: " + mediaAlturaMulheres + " cm</p>")
+    document.write("<p>Média de altura do grupo: " + mediaAlturaGrupo + " cm</p>")
+    document.write("<p>Total de homens: " + totalHomens + "</p>")
+    document.write("<p>Total de homens com mais de 170 cm: " + totalHomensAcimaDe170 + "</p>")
+</script>

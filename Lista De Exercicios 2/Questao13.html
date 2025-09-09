@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema de Votos</title>
+</head>
+<body>
+    <h1>Sistema de Contagem de Votos</h1>
+    <div>
+        <input type="number" id="voto" placeholder="Digite o código">
+        <button onclick="computarVoto()">Computar Voto</button>
+        <button onclick="finalizarVotacao()">Finalizar</button>
+    </div>
+
+    <div id="mensagem"></div>
+    <div id="resultado" style="display: none;"></div>
+
+    <script>
+        let candidato1 = 0;
+        let candidato2 = 0;
+        let candidato3 = 0;
+        let candidato4 = 0;
+        let candidato5 = 0;
+        let votosNulos = 0;
+        let votosBrancos = 0;
+
+        function computarVoto() {
+            let voto = document.getElementById("voto").value;
+            let numero = parseInt(voto);
+
+            if (voto === "" || isNaN(numero)) {
+                mostrarMensagem("Por favor, digite um número!", "erro");
+                return;
+            }
+
+            if (numero === 0) {
+                finalizarVotacao();
+                return;
+            }
+
+            if (numero === 1) {
+                candidato1++;
+                mostrarMensagem("Voto computado para Candidato 1", "sucesso");
+            } else if (numero === 2) {
+                candidato2++;
+                mostrarMensagem("Voto computado para Candidato 2", "sucesso");
+            } else if (numero === 3) {
+                candidato3++;
+                mostrarMensagem("Voto computado para Candidato 3", "sucesso");
+            } else if (numero === 4) {
+                candidato4++;
+                mostrarMensagem("Voto computado para Candidato 4", "sucesso");
+            } else if (numero === 5) {
+                candidato5++;
+                mostrarMensagem("Voto computado para Candidato 5", "sucesso");
+            } else if (numero === 6) {
+                votosNulos++;
+                mostrarMensagem("Voto nulo computado", "sucesso");
+            } else if (numero === 7) {
+                votosBrancos++;
+                mostrarMensagem("Voto em branco computado", "sucesso");
+            } else {
+                mostrarMensagem("Código inválido! Use apenas 1, 2, 3, 4, 5, 6, 7 ou 0", "erro");
+            }
+
+            document.getElementById("voto").value = "";
+        }
+
+        function mostrarMensagem(texto, tipo) {
+            let mensagem = document.getElementById("mensagem");
+            mensagem.innerHTML = '<p class="' + tipo + '">' + texto + '</p>';
+        }
+
+        function finalizarVotacao() {
+            let totalVotos = candidato1 + candidato2 + candidato3 + candidato4 + candidato5 + votosNulos + votosBrancos;
+
+            let resultadoHTML = "";
+            resultadoHTML += "<p>Total de votos por candidato:</p>";
+            resultadoHTML += "<p>Candidato 1: " + candidato1 + " votos</p>";
+            resultadoHTML += "<p>Candidato 2: " + candidato2 + " votos</p>";
+            resultadoHTML += "<p>Candidato 3: " + candidato3 + " votos</p>";
+            resultadoHTML += "<p>Candidato 4: " + candidato4 + " votos</p>";
+            resultadoHTML += "<p>Candidato 5: " + candidato5 + " votos</p>";
+            resultadoHTML += "<p>Votos nulos: " + votosNulos + " votos</p>";
+            resultadoHTML += "<p>Votos em branco: " + votosBrancos + " votos</p>";
+            resultadoHTML += "<p>Total geral: " + totalVotos + " votos</p>";
+
+            if (totalVotos > 0) {
+                let percentualNulos = (votosNulos * 100) / totalVotos;
+                let percentualBrancos = (votosBrancos * 100) / totalVotos;
+                let percentualNulosBrancos = percentualNulos + percentualBrancos;
+
+                resultadoHTML += "<p>Percentual de votos nulos: " + percentualNulos.toFixed(2) + "%</p>";
+                resultadoHTML += "<p>Percentual de votos em branco: " + percentualBrancos.toFixed(2) + "%</p>";
+                resultadoHTML += "<p>Total de nulos + brancos: " + percentualNulosBrancos.toFixed(2) + "%</p>";
+            } else {
+                resultadoHTML += "<p>Não houve votos para calcular percentuais</p>";
+            }
+
+            document.getElementById("resultado").innerHTML = resultadoHTML;
+            document.getElementById("resultado").style.display = "block";
+        }
+    </script>
+</body>
+</html>

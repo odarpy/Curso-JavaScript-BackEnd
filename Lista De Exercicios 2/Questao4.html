@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Soma De Numeros Pares</title>
+    </head>
+    <body>
+        <h1>Faça um algoritmo para somar os números pares < 1000 e ao final imprimir o resultado.</h1>
+        
+        <p>Digite um valor:</p>
+        <input type="number" id="x">
+        <button onclick="calcular()">Calcular</button>
+        
+        <p id="resultado"></p>
+
+        <script>
+            function calcular() {
+                let x = document.getElementById('x').value;
+                x = Number(x);
+                
+                let soma = 0;
+                
+                for (let i = 2; i < x; i += 2) {
+                    soma += i;
+                }
+                
+                document.getElementById('resultado').innerHTML = "A soma dos números pares menores que " + x + " é: " + soma;
+            }
+        </script>
+    </body>
+</html>

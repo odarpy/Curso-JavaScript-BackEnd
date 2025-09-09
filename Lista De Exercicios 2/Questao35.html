@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questao 35</title>
+    <script>
+        let numeros = [];
+        function verificarNumero(event) {
+            event.preventDefault();
+            let numero = Number(document.querySelector("#numero").value);
+            if (numero === -1) {
+                document.querySelector("form").style.display = "none";
+                document.querySelector("#resultado").innerHTML = `Números: ${numeros.join(", ")}<br>
+                Total de números múltiplos de 8: ${numeros.filter(n => n % 8 === 0).length}<br>
+                Média dos números: ${numeros.reduce((s, n) => s + n, 0) / numeros.length}`;
+            } else {
+                numeros.push(numero);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>35- Faça um algoritmo que possa entrar com vários números inteiros positivos até entrar -1. Imprimir todos os números e, ao final, total de números múltiplos de 8 digitados e a média de todos os números lidos.</h2>
+    <form onsubmit="verificarNumero(event)">
+        <p>Digite um número:
+            <input type="number" id="numero" required min="0">
+        </p>
+        <input type="submit" value="Adicionar">
+    </form>
+    <hr>
+    <h3>Resposta</h3>
+    <p id="resultado"></p>
+</body>
+</html>

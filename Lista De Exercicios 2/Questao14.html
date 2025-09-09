@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questão 14</title>
+</head>
+<body>
+    <p>Dado a idade e o sexo (F ou M) de um grupo de 20 pessoas. Elabore um algoritmo que calcule e escreva: a. O total de mulheres. b. O total de mulheres com idade acima de 21 anos. c. O total de pessoas com maioridade (>=18 anos) d. Percentual de homens no grupo.</p>
+</body>
+<script>
+    let totalMulheres = 0;
+    let totalMulheresAcima21 = 0;
+    let totalMaioridade = 0;
+    let totalHomens = 0;
+    const totalPessoas = 20;
+
+    for (let i = 0; i < totalPessoas; i++) {
+        const idade = parseInt(prompt(`Digite a idade da pessoa ${i + 1}:`));
+        const sexo = prompt(`Digite o sexo da pessoa ${i + 1} (F ou M):`).toUpperCase();
+
+        if (sexo === 'F') {
+            totalMulheres++;
+            if (idade > 21) {
+                totalMulheresAcima21++;
+            }
+        } else if (sexo === 'M') {
+            totalHomens++;
+        }
+
+        if (idade >= 18) {
+            totalMaioridade++;
+        }
+    }
+
+    const percentualHomens = (totalHomens / totalPessoas) * 100;
+
+    document.write(`Total de mulheres: ${totalMulheres}<br>`);
+    document.write(`Total de mulheres com idade acima de 21 anos: ${totalMulheresAcima21}<br>`);
+    document.write(`Total de pessoas com maioridade (>=18 anos): ${totalMaioridade}<br>`);
+    document.write(`Percentual de homens no grupo: ${percentualHomens.toFixed(2)}%<br>`);
+</script>

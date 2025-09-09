@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Leia 200 valores reais e escreva o seu somatório.</title>
+    </head>
+    <body>
+        <h1>Leia 200 valores reais e escreva o seu somatório.</h1>
+    </body>
+        <button onclick="calcular()">Calcular</button>
+        <p id="resultado"></p>
+        <script>
+            function calcular() {
+                let soma = 0;
+                
+                for (let i = 1; i <= 200; i++) {
+                    let valor = Math.random() * 100; 
+                    soma += valor;
+                }
+                
+                document.getElementById('resultado').innerHTML = 
+                    "Somatório dos 200 valores reais: " + soma.toFixed(2);
+            }
+        </script>
+</html>

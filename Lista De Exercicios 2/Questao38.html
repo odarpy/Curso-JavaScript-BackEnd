@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questao 38</title>
+</head>
+<body>
+    <p>Faça um algoritmo que funcione através do menu abaixo:
+        Considerações:
+        1 - Ao se escolher a opção 1, deverá ser pedido os valores dos catetos e impresso a HIPOTENUSA.
+        2 - Ao se escolher a opção 2, deverá ser pedido 3 notas e impressa a MÉDIA PONDERADA. Para
+        calcular a média ponderada, use os seguintes pesos para as notas: 2, 3 e 2 respectivamente.
+        3 - Ao se escolher a opção 3, deverá ser pedido 3 números e impresso menor.</p>
+<script>
+    function calcularHipotenusa(cateto1, cateto2) {
+        return Math.sqrt(cateto1 * cateto1 + cateto2 * cateto2);
+    }
+
+    function calcularMediaPonderada(nota1, nota2, nota3) {
+        const peso1 = 2, peso2 = 3, peso3 = 2;
+        return (nota1 * peso1 + nota2 * peso2 + nota3 * peso3) / (peso1 + peso2 + peso3);
+    }
+
+    function encontrarMenor(num1, num2, num3) {
+        return Math.min(num1, num2, num3);
+    }
+
+    function menu() {
+        let opcao;
+        do {
+            opcao = prompt("Escolha uma opção:\n1. Calcular Hipotenusa\n2. Calcular Média Ponderada\n3. Encontrar Menor Número\n4. Sair");
+            switch (opcao) {
+                case '1':
+                    const cateto1 = parseFloat(prompt("Digite o valor do primeiro cateto:"));
+                    const cateto2 = parseFloat(prompt("Digite o valor do segundo cateto:"));
+                    if (isNaN(cateto1) || isNaN(cateto2)) {
+                        alert("Erro: Os valores devem ser números.");
+                        break;
+                    }
+                    const hipotenusa = calcularHipotenusa(cateto1, cateto2);
+                    alert(`A hipotenusa é: ${hipotenusa}`);
+                    break;
+                case '2':
+                    const nota1 = parseFloat(prompt("Digite a primeira nota:"));
+                    const nota2 = parseFloat(prompt("Digite a segunda nota:"));
+                    const nota3 = parseFloat(prompt("Digite a terceira nota:"));
+                    if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
+                        alert("Erro: As notas devem ser números.");
+                        break;
+                    }
+                    const media = calcularMediaPonderada(nota1, nota2, nota3);
+                    alert(`A média ponderada é: ${media}`);
+                    break;
+                case '3':
+                    const num1 = parseFloat(prompt("Digite o primeiro número:"));
+                    const num2 = parseFloat(prompt("Digite o segundo número:"));
+                    const num3 = parseFloat(prompt("Digite o terceiro número:"));
+                    if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+                        alert("Erro: Os valores devem ser números.");
+                        break;
+                    }
+                    const menor = encontrarMenor(num1, num2, num3);
+                    alert(`O menor número é: ${menor}`);
+                    break;
+                case '4':
+                    alert("Encerrando o algoritmo.");
+                    return;
+                default:
+                    alert("Opção inválida. Tente novamente.");
+            }
+        } while (true);
+    }
+
+    menu();
+</script>

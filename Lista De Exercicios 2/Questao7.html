@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Calculo de Imposto</title>
+    </head>
+    <body>
+        <h1>Para cada nota de compra, tem-se o nome do produto comprado, o valor e o imposto. Faça um algoritmo que escreva o valor total bruto, o imposto total cobrado e o valor total líquido de todas as notas. Considere 500 notas</h1>
+        <p>Clique no botão para calcular os valores:</p>
+        <button onclick="calcular()">Calcular</button>
+        <p id="resultado"></p>
+        <script>
+            function calcular() {
+                let totalBruto = 0;
+                let totalImposto = 0;
+                let totalLiquido = 0;
+                
+                for (let i = 1; i <= 500; i++) {
+                    let valor = Math.random() * 1; 
+                    let imposto = valor * 0.1;
+                    totalBruto += valor;
+                    totalImposto += imposto;
+                    totalLiquido += (valor - imposto);
+                }
+                
+                document.getElementById('resultado').innerHTML = 
+                    "Valor Total Bruto: R$ " + totalBruto.toFixed(2) + "<br>" +
+                    "Imposto Total Cobrado: R$ " + totalImposto.toFixed(2) + "<br>" +
+                    "Valor Total Líquido: R$ " + totalLiquido.toFixed(2);
+            }
+        </script>
+    </body>
+</html>

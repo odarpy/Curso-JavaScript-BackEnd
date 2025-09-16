@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Questao 3</title>
+    </head>
+    <body>
+        <p>Elabore um programa que, dados dois vetores inteiros de 20 posições, efetue as respectivas operações<br>
+            indicadas por um outro vetor de 20 posições de inteiros também fornecido pelo usuário, contendo as<br>
+            quatro operações aritméticas em qualquer combinação e armazenando os resultados em um quarto<br>
+            vetor. Operações inválidas devem ser indicadas com o resultado -1.<br>
+            Assuma: 1 = Soma, 2 = Subtração, 3 = Multiplicação e 4 = Divisão.</p>
+        <form onsubmit="operacoesVetores(event)">
+            <p>Vetor 1:</p>
+            <input type="number" id="vetor1" required>
+            <p>Vetor 2:</p>
+            <input type="number" id="vetor2" required>
+            <p>Vetor Operações:</p>
+            <input type="number" id="vetorOperacoes" required>
+            <input type="submit" value="Enviar">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resposta"></p>
+        <script>
+            function operacoesVetores(event) {
+                event.preventDefault();
+                let vetor1 = document.querySelector("#vetor1").value.split(",").map(Number);
+                let vetor2 = document.querySelector("#vetor2").value.split(",").map(Number);
+                let vetorOperacoes = document.querySelector("#vetorOperacoes").value.split(",").map(Number);
+                let resultado = [];
+                for (let i = 0; i < 20; i++) {
+                    switch (vetorOperacoes[i]) {
+                        case 1:
+                            resultado.push(vetor1[i] + vetor2[i]);
+                            break;
+                        case 2:
+                            resultado.push(vetor1[i] - vetor2[i]);
+                            break;
+                        case 3:
+                            resultado.push(vetor1[i] * vetor2[i]);
+                            break;
+                        case 4:
+                            if (vetor2[i] !== 0) {
+                                resultado.push(vetor1[i] / vetor2[i]);
+                            } else {
+                                resultado.push(-1);
+                            }
+                            break;
+                        default:
+                            resultado.push(-1);
+                    }
+                }
+                document.querySelector("#resposta").innerHTML = `Vetor Resultado: ${resultado.join(", ")}`;
+            }
+        </script>
+    </body>
+</html>

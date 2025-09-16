@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questao 12</title>
+</head>
+<body>
+    <h1>Questao 12</h1>
+    <p>Faça um programa que leia dois vetores, x e y, com dez números inteiros cada um. Calcule e mostre os seguintes vetores resultantes:
+<br>• a união de x com y (todos os elementos de x e os elementos de y que não estão em x)
+    Ex.:
+    x [3 5 4 2 1 6 8 7 11 9]<br>
+    y [2 1 5 12 3 0 -1 4 7 6]<br>
+    União [3 5 4 2 1 6 8 7 11 9 12 0 -1]<br>
+<br>• a interseção entre x e y (apenas os elementos que aparecem nos dois vetores)
+    Ex.:<br>
+    x [3 5 4 2 1 6 8 7 11 9]<br>
+    y [2 1 5 12 3 0 -1 4 7 6]<br>
+    Interseção [3 5 4 2 1 6 7]<br>
+    • a diferença entre x e y (todos os elementos de x que não existam em y)<br>
+    Ex.:<br>
+    x [3 5 4 2 1 6 8 7 11 9]<br>
+    y [2 1 5 12 3 0 -1 4 7 6]<br>
+    Diferença [8 11 9]</p>
+    <form onsubmit="operacoesVetores(event)">
+        <p>Vetor X:</p>
+        <input type="text" id="vetorX" required placeholder="Ex: 8,7,3,1,2">   
+        <p>Vetor Y:</p>
+        <input type="text" id="vetorY" required placeholder="Ex: 8,7,3,1,2">   
+        <input type="submit" value="Enviar">
+    </form>
+    <hr>
+    <h3>Resposta</h3>
+    <p id="resposta"></p>
+    <script>
+        function operacoesVetores(event) {
+            event.preventDefault();
+            let vetorX = document.querySelector("#vetorX").value.split(",").map(Number);
+            let vetorY = document.querySelector("#vetorY").value.split(",").map(Number);
+            let uniao = [...new Set(vetorX.concat(vetorY))];
+            let intersecao = vetorX.filter(num => vetorY.includes(num));
+            let diferenca = vetorX.filter(num => !vetorY.includes(num));
+            document.querySelector("#resposta").innerHTML = `União: ${uniao.join(", ")}<br>Interseção: ${intersecao.join(", ")}<br>Diferença: ${diferenca.join(", ")}`;
+        }
+    </script>
+</body>
+</html>

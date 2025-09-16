@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Questao 4</title>
+    </head>
+    <body>
+        <p>Escreva um programa quer descubra qual é o maior elemento de um vetor e o coloque na última
+            posição do mesmo, comparando pares de elementos e permutando-os quando estiverem fora de ordem.<br>
+            Exemplo: A = [8 7 3 1 2]<br>
+            → 7 8 <br>
+              3 8 <br>
+              1 8 <br>
+              2 8 <br></p>
+        <form onsubmit="maiorElemento(event)">
+            <p>Vetor:</p>
+            <input type="text" id="vetor" required placeholder="Ex: 8,7,3,1,2">   
+            <input type="submit" value="Enviar">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resposta"></p>
+        <script>
+            function maiorElemento(event) {
+                event.preventDefault();
+                let vetor = document.querySelector("#vetor").value.split(",").map(Number);
+                let n = vetor.length;
+                for (let i = 0; i < n - 1; i++) {
+                    for (let j = 0; j < n - i - 1; j++) {
+                        if (vetor[j] > vetor[j + 1]) {
+                            let temp = vetor[j];
+                            vetor[j] = vetor[j + 1];
+                            vetor[j + 1] = temp;
+                        }
+                    }
+                }
+                document.querySelector("#resposta").innerHTML = `Vetor com maior elemento na última posição: ${vetor.join(", ")}`;
+            }
+        </script>
+    </body>
+</html>

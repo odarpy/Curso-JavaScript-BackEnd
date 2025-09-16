@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Questao 2</title>
+    </head>
+    <body>
+        <p>Construa um programa que preencha um vetor de 100 elementos inteiros, colocando 1 na posição correspondente a um número par e 0 a um número ímpar.</p>
+        <form onsubmit="preencherVetor(event)">
+            <input type="number" id="numero" required>
+            <input type="submit" value="Enviar">
+        </form>
+        <hr>
+        <h3>Resposta</h3>
+        <p id="resposta"></p>
+        <script>
+            function preencherVetor(event) {
+                event.preventDefault();
+                let numero = document.querySelector("#numero").valueAsNumber;
+                let vetor = [];
+                for (let i = 0; i < numero; i++) {
+                    if (i % 2 === 0) {
+                        vetor.push(1);
+                    } else {
+                        vetor.push(0);
+                    }
+                }
+                document.querySelector("#resposta").innerHTML = `Vetor preenchido: ${vetor.join(", ")}`;
+            }
+        </script>
+    </body>
+</html>

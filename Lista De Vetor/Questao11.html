@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questao 11</title>
+</head>
+<body>
+    <h1>Questao 11</h1>
+    <p>O professor Raphael deseja saber se existem alunos cursando concomitantemente os cursos Back-end<br>
+        com Python e Front-end com React. Para isso, faça um programa que leia um vetor de 15 posições<br>
+        contendo as matrículas dos alunos da turma de Cálculo I, leia outro vetor, com 20 posições, contento as<br>
+        matrículas dos alunos da turma de programas e Programação 1 e ao final imprima a matrícula dos<br>
+        alunos que estão cursando as duas disciplinas ao mesmo tempo. (Atenção: os vetores lidos não estão<br>
+        necessariamente ordenados).</p><br>
+    <form onsubmit="matriculasConcomitantes(event)">
+        <p>Vetor 1:</p>
+        <input type="text" id="vetor1" required placeholder="Ex: 8,7,3,1,2">   
+        <p>Vetor 2:</p>
+        <input type="text" id="vetor2" required placeholder="Ex: 8,7,3,1,2">   
+        <input type="submit" value="Enviar">
+    </form>
+    <hr>
+    <h3>Resposta</h3>
+    <p id="resposta"></p>
+    <script>
+        function matriculasConcomitantes(event) {
+            event.preventDefault();
+            let vetor1 = document.querySelector("#vetor1").value.split(",").map(Number);
+            let vetor2 = document.querySelector("#vetor2").value.split(",").map(Number);
+            let matriculasComum = vetor1.filter(matricula => vetor2.includes(matricula));
+            if (matriculasComum.length > 0) {
+                document.querySelector("#resposta").innerHTML = `Matrículas dos alunos cursando ambas as disciplinas: ${matriculasComum.join(", ")}`;
+            } else {
+                document.querySelector("#resposta").innerHTML = "Não há alunos cursando ambas as disciplinas.";
+            }
+        }
+    </script>
+</body>
+</html>

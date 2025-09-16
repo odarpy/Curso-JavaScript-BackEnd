@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questao 7</title>
+</head>
+<body>
+    <p>Faça um programa que leia dois vetores de dez elementos inteiros cada um e mostre um vetor<br>
+        resultante da intercalação desses dois vetores.<br>
+        Ex.:<br>
+        Vetor 1 [3 5 4 2 2 5 3 2 5 9]<br>
+        Vetor 2 [3 5 4 2 2 5 3 2 5 9]<br>
+        Vetor resultante da intercalação [3 3 5 5 4 4 2 2 2 2 5 5 3 3 2 2 5 5 9 9]<br>
+    </p>
+    <form onsubmit="intercalarVetores(event)">
+        <p>Vetor 1:</p>
+        <input type="text" id="vetor1" required placeholder="Ex: 8,7,3,1,2">   
+        <p>Vetor 2:</p>
+        <input type="text" id="vetor2" required placeholder="Ex: 8,7,3,1,2">   
+        <input type="submit" value="Enviar">
+    </form>
+    <hr>
+    <h3>Resposta</h3>
+    <p id="resposta"></p>
+    <script>
+        function intercalarVetores(event) {
+            event.preventDefault();
+            let vetor1 = document.querySelector("#vetor1").value.split(",").map(Number);
+            let vetor2 = document.querySelector("#vetor2").value.split(",").map(Number);
+            let vetorResultante = [];
+            let n = Math.min(vetor1.length, vetor2.length);
+            for (let i = 0; i < n; i++) {
+                vetorResultante.push(vetor1[i]);
+                vetorResultante.push(vetor2[i]);
+            }
+
+            if (vetor1.length > vetor2.length) {
+                for (let i = n; i < vetor1.length; i++) {
+                    vetorResultante.push(vetor1[i]);
+                }
+            } else {
+                for (let i = n; i < vetor2.length; i++) {
+                    vetorResultante.push(vetor2[i]);
+                }
+            }
+            document.querySelector("#resposta").innerHTML = `Vetor resultante da intercalação: ${vetorResultante.join(", ")}`;
+                
+            }
+    </script>
+</body>
+</html>

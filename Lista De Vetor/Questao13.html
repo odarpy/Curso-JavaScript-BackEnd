@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questao 13</title>
+</head>
+<body>
+    <h1>Questao 13</h1>
+    <p>Faça um programa para corrigir provas de múltipla escolha, da seguinte forma:
+        • A prova tem 10 questões, cada uma valendo um ponto. Em primeiro lugar, o programa deve ler o<br>
+        gabarito da prova: um vetor de 10 posições, onde cada posição conterá a resposta correta da<br>
+        questão correspondente (as opções de resposta são 1, 2, 3 ou 4); a resposta correta para a primeira<br>
+        questão está na primeira posição do vetor, para segunda questão está na segunda posição, etc.<br>
+        • Depois, o programa lerá as provas de uma turma de 10 alunos. Para cada prova, você deve ler a<br>
+        matrícula do aluno (uma variável do tipo inteiro) e um vetor com as respostas dele na prova. Então,<br>
+        o programa deve dizer a matrícula e nota do aluno, corrigindo a prova dele conforme o gabarito.<br>
+        • Após corrigir todas as provas, seu programa deve ainda imprimir a porcentagem de alunos<br>
+        aprovados na turma (a nota mínima para aprovação é 6.0), e também a nota que apareceu mais<br>
+        vezes (de maior frequência) na turma.<br>
+        • Só isso! </p><br>
+    <form onsubmit="corrigirProvas(event)">
+        <p>Gabarito (10 questões):</p>
+        <input type="text" id="gabarito" required placeholder="Ex: 1,2,3,4,1,2,3,4,1,2">
+        <p>Aluno 1 - Matrícula:</p>
+        <input type="number" id="matricula1" required>
+        <p>Aluno 1 - Respostas:</p>
+        <input type="text" id="respostas1" required placeholder="Ex: 1,2,3,4,1,2,3,4,1,2">
+        <p>Aluno 2 - Matrícula:</p>
+        <input type="number" id="matricula2" required>
+        <p>Aluno 2 - Respostas:</p>
+        <input type="text" id="respostas2" required placeholder="Ex: 1,2,3,4,1,2,3,4,1,2">
+        <p>Aluno 3 - Matrícula:</p>
+        <input type="number" id="matricula3" required>
+        <p>Aluno 3 - Respostas:</p>
+        <input type="text" id="respostas3" required placeholder="Ex: 1,2,3,4,1,2,3,4,1,2">
+        <p>Aluno 4 - Matrícula:</p>
+        <input type="number" id="matricula4" required>
+        <p>Aluno 4 - Respostas:</p>
+        <input type="text" id="respostas4" required placeholder="Ex: 1,2,3,4,1,2,3,4,1,2">
+        <p>Aluno 5 - Matrícula:</p>
+        <input type="number" id="matricula5" required>
+        <p>Aluno 5 - Respostas:</p>
+        <input type="text" id="respostas5" required placeholder="Ex: 1,2,3,4,1,2,3,4,1,2">
+        <p>Aluno 6 - Matrícula:</p>
+        <input type="number" id="matricula6" required>
+        <p>Aluno 6 - Respostas:</p>
+        <input type="text" id="respostas6" required placeholder="Ex: 1,2,3,4,1,2,3,4,1,2">
+        <p>Aluno 7 - Matrícula:</p>
+        <input type="number" id="matricula7" required>
+        <p>Aluno 7 - Respostas:</p>
+        <input type="text" id="respostas7" required placeholder="Ex: 1,2,3,4,1,2,3,4,1,2">
+        <p>Aluno 8 - Matrícula:</p>
+        <input type="number" id="matricula8" required>
+        <p>Aluno 8 - Respostas:</p>
+        <input type="text" id="respostas8" required placeholder="Ex: 1,2,3,4,1,2,3,4,1,2">
+        <p>Aluno 9 - Matrícula:</p>
+        <input type="number" id="matricula9" required>
+        <p>Aluno 9 - Respostas:</p>
+        <input type="text" id="respostas9" required placeholder="Ex: 1,2,3,4,1,2,3,4,1,2">   
+        <p>Aluno 10 - Matrícula:</p>    
+        <input type="number" id="matricula10" required>
+        <p>Aluno 10 - Respostas:</p>
+        <input type="text" id="respostas10" required placeholder="Ex: 1,2,3,4,1,2,3,4,1,2">
+        <input type="submit" value="Enviar">
+    </form>
+    <hr>
+    <h3>Resposta</h3>
+    <p id="resposta"></p>
+    <script>
+        function somarVetores(event) {
+            event.preventDefault();
+            const gabarito = document.getElementById('gabarito').value.split(',').map(Number);
+            const matricula1 = document.getElementById('matricula1').value;
+            const respostas1 = document.getElementById('respostas1').value.split(',').map(Number);
+            const matricula2 = document.getElementById('matricula2').value;
+            const respostas2 = document.getElementById('respostas2').value.split(',').map(Number);
+            const matricula3 = document.getElementById('matricula3').value;
+            const respostas3 = document.getElementById('respostas3').value.split(',').map(Number);
+            const matricula4 = document.getElementById('matricula4').value;
+            const respostas4 = document.getElementById('respostas4').value.split(',').map(Number);
+            const matricula5 = document.getElementById('matricula5').value;
+            const respostas5 = document.getElementById('respostas5').value.split(',').map(Number);
+            const matricula6 = document.getElementById('matricula6').value;
+            const respostas6 = document.getElementById('respostas6').value.split(',').map(Number);
+            const matricula7 = document.getElementById('matricula7').value;
+            const respostas7 = document.getElementById('respostas7').value.split(',').map(Number);
+            const matricula8 = document.getElementById('matricula8').value;
+            const respostas8 = document.getElementById('respostas8').value.split(',').map(Number);
+            const matricula9 = document.getElementById('matricula9').value;
+            const respostas9 = document.getElementById('respostas9').value.split(',').map(Number);
+            const matricula10 = document.getElementById('matricula10').value;
+            const respostas10 = document.getElementById('respostas10').value.split(',').map(Number);
+
+            const alunos = [
+                { matricula: matricula1, respostas: respostas1 },
+                { matricula: matricula2, respostas: respostas2 },
+                { matricula: matricula3, respostas: respostas3 },
+                { matricula: matricula4, respostas: respostas4 },
+                { matricula: matricula5, respostas: respostas5 },
+                { matricula: matricula6, respostas: respostas6 },
+                { matricula: matricula7, respostas: respostas7 },
+                { matricula: matricula8, respostas: respostas8 },
+                { matricula: matricula9, respostas: respostas9 },
+                { matricula: matricula10, respostas: respostas10 }
+            ];
+
+            let pontuacoes = alunos.map(aluno => {
+                let pontuacao = 0;
+                for (let i = 0; i < aluno.respostas.length; i++) {
+                    if (aluno.respostas[i] === gabarito[i]) {
+                        pontuacao++;
+                    }
+                }
+                return { matricula: aluno.matricula, pontuacao: pontuacao };
+            });
+
+            pontuacoes.sort((a, b) => b.pontuacao - a.pontuacao);
+
+            let mensagem = '';
+            for (let i = 0; i < pontuacoes.length; i++) {
+                mensagem += `${pontuacoes[i].matricula} - Pontuação: ${pontuacoes[i].pontuacao}<br>`;
+            }
+
+            document.getElementById('resposta').innerHTML = mensagem;
+        }
+    </script>
+</body>
+</html>

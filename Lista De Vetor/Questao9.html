@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Questao 9</title>
+</head>
+<body>
+    <h1>Questao 9</h1>
+    <p>Dados dois vetores A e B em ordem crescente, construa um vetor C resultante da intercalação destes<br>
+        2 vetores de modo que C já seja gerado em ordem crescente. Considere que a dimensão máxima desses<br>
+        vetores é 20. Entretanto, os vetores podem ter dimensões distintas (ex.: A ter 6 elementos e B ter 3).<br>
+        Não é permitido colocar um vetor após o outro em C e fazer a ordenação em seguida.</p><br>
+    <form onsubmit="intercalarVetores(event)">
+        <p>Vetor A:</p>
+        <input type="text" id="vetorA" required placeholder="Ex: 1,3,5,7,9">   
+        <p>Vetor B:</p>
+        <input type="text" id="vetorB" required placeholder="Ex: 2,4,6,8">   
+        <input type="submit" value="Enviar">
+    </form>
+    <hr>
+    <h3>Resposta</h3>
+    <p id="resposta"></p>
+    <script>
+        function intercalarVetores(event) {
+            event.preventDefault();
+            let vetorA = document.querySelector("#vetorA").value.split(",").map(Number);
+            let vetorB = document.querySelector("#vetorB").value.split(",").map(Number);
+            let vetorC = [];
+            let i = 0, j = 0;
+            while (i < vetorA.length && j < vetorB.length) {
+                if (vetorA[i] <= vetorB[j]) {
+                    vetorC.push(vetorA[i]);
+                    i++;
+                } else {
+                    vetorC.push(vetorB[j]);
+                    j++;
+                }
+            }
+            while (i < vetorA.length) {
+                vetorC.push(vetorA[i]);
+                i++;
+            }
+            while (j < vetorB.length) {
+                vetorC.push(vetorB[j]);
+                j++;
+            }
+            document.querySelector("#resposta").innerHTML = `Vetor C resultante da intercalação: ${vetorC.join(", ")}`;
+        }
+    </script>
+</body>
+</html>
